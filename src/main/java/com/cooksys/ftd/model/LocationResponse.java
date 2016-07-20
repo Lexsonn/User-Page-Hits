@@ -75,9 +75,9 @@ public class LocationResponse {
 	
 	public static List<LocationResponse> getList(List<Location> list) {
 		List<LocationResponse> locationList = new ArrayList<>();
-		for (Location location : list) {
+		for (Location location : list)
 			locationList.add(LocationResponse.get(location));
-		}
+		
 		return locationList;
 	}
 }

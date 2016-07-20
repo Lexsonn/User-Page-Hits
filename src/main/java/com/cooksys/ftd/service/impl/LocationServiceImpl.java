@@ -1,10 +1,15 @@
 package com.cooksys.ftd.service.impl;
 
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cooksys.ftd.CurrentDay;
+import com.cooksys.ftd.entity.HitsPerDay;
 import com.cooksys.ftd.entity.Location;
 import com.cooksys.ftd.entity.User;
 import com.cooksys.ftd.model.RequestLocation;
@@ -99,4 +104,37 @@ public class LocationServiceImpl implements LocationService {
 		
 		return null;
 	}
+
+	private Location parseLocationDays(Location location, Long days) throws ParseException {
+		Long currentDay = CurrentDay.getCurrentDay(new Date());
+		//findBottom7By in JPA repository
+		List<HitsPerDay> list = location.getHitsPerDay();
+		for (HitsPerDay hpd : list) {
+			if (hpd.getDay() + days <= currentDay) {
+				location.setHits(location.getHits() - hpd.getHits());
+				location.setAnonHits(location.getAnonHits() - hpd.getAnonHits());
+			}
+		}
+		return location;
+	}
+	
+	@Override
+	public List<Location> getAllLocationsByDaysNum(Long days) throws ParseException {
+		List<Location> locations = getAllLocations();
+		List<Location> result = new ArrayList<>();
+		for (Location location : locations)
+			result.add(parseLocationDays(location, days));
+		
+		return result;
+	}
+
+	@Override
+	public Location getLocationByDaysNum(Long id, Long days) throws ParseException {
+		Location location = getLocationById(id);
+		if (location == null)
+			return null;
+		
+		return parseLocationDays(location, days);
+	}
+	
 }

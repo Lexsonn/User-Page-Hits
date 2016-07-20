@@ -9,15 +9,17 @@ public class UserResponse {
 	
 	private Long id;
 	private String username;
+	private String role;
 	
 	public UserResponse() {
 		super();
 	}
 
-	public UserResponse(Long id, String username) {
+	public UserResponse(Long id, String username, String role) {
 		super();
 		this.id = id;
 		this.username = username;
+		this.role = role;
 	}
 
 	public Long getId() {
@@ -36,10 +38,18 @@ public class UserResponse {
 		this.username = username;
 	}
 	
+	public String getRole() {
+		return this.role;
+	}
+	
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
 	public static UserResponse get(User user) {
 		if (user == null)
 			return null;
-		return new UserResponse(user.getId(), user.getUsername());
+		return new UserResponse(user.getId(), user.getUsername(), user.getRole().getRole());
 	}
 	
 	public static List<UserResponse> getList(List<User> list) {

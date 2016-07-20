@@ -1,0 +1,18 @@
+<div class="container-fluid">
+	<div class="col-md-13 col-md-offset-1">
+		<div class="jumbotron">
+			<h2>Please select where you logged in from: </h2>
+		</div>
+		<div>
+			<div class="col-xs-12"><h3>Locations:</h3></div>
+			
+			<div class="list-group">
+				<div ng-repeat="location in userLoginController.locations" class="col-xs-12">
+					<a class="list-group-item" ng-href="#locations/get/{{location.id}}">
+						<span class="glyphicon glyphicon-user" aria-hidden="true"> </span> {{location.title}}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

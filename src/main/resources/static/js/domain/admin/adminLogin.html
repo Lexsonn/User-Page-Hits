@@ -1,0 +1,49 @@
+<div class="container-fluid">
+	<div class="col-md-13 col-md-offset-1">
+		<div class="jumbotron">
+			
+				<h2 class="col-sm-5" id="fuckyou">New URL: </h2>
+
+				<button ng-click="adminLoginController.addLocation()" type="submit" class="col-sm-1 btn btn-success" id="fuckyoutoo">
+				<span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"> </span> </button>
+			
+		</div>
+		<div>
+			<div>
+				<h3><label for="listing" class="col-sm-2 col-sm-offset-1 control-label">View by: </label></h3>
+				<div class="col-sm-2">
+					<div class="dropdown">
+						<button class="btn btn-default dropdown-toggle" type="button"
+							id="typeMenu" data-toggle="dropdown">
+							{{adminLoginController.currentType}} <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li ng-repeat="type in adminLoginController.availableTypes"><a style="cursor: pointer;"
+								ng-click="adminLoginController.typeSelected(type)">{{type}}</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-xs-8"><h3><span class="glyphicon glyphicon-globe" aria-hidden="true"> </span>     Locations:</h3></div>
+			<div class="col-xs-2"><h3>User Hits:</h3></div>
+			<div class="col-xs-2"><h3>Total Hits:</h3></div>
+			
+			<div class="list-group">
+				<div ng-repeat="location in locations">
+					<div class="col-xs-8">
+						<a class="list-group-item" ng-href="#locations/get/{{location.id}}">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"> </span> {{' ' + location.title}}
+						</a>
+					</div>
+					<div class="col-xs-2">
+						<p class="list-group-item" >{{location.userHits}}</p>
+					</div>
+					<div class="col-xs-2">
+						<p class="list-group-item" >{{location.totalHits}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

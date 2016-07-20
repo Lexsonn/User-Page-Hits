@@ -1,5 +1,6 @@
 package com.cooksys.ftd.service;
 
+import java.text.ParseException;
 import java.util.List;
 
 import com.cooksys.ftd.entity.Location;
@@ -14,8 +15,10 @@ public interface LocationService {
 	public List<Location> getAllLocations();
 	public List<User> getAllUsersByLocation(Long num);
 	public String getConversionRateByLocation(Long num);
+	// GET (Hits per day)
+	public List<Location> getAllLocationsByDaysNum(Long days) throws ParseException;
+	public Location getLocationByDaysNum(Long id, Long days) throws ParseException;
 	// POST METHODS
 	public Location createLocation(RequestLocation requestLocation);
 	public Location addToLocation(RequestLocation requestLocation, Long n);
-	
 }

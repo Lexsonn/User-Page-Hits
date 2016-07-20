@@ -8,8 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name="user")
+@Table(name="User")
 public class User {
 	@Id
 	@GeneratedValue
@@ -20,16 +22,21 @@ public class User {
 	private String password;
 	@Column(name="num")
 	private Long num;
+	@ManyToOne
+	@JoinColumn(name="role")
+	private UserRole role;
 	
 	public User() {
 		super();
 	}
 
-	public User(Long id, String username, String password) {
+	public User(Long id, String username, String password, Long num, UserRole role) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.num = num;
+		this.role = role;
 	}
 
 	public Long getId() {
@@ -62,6 +69,14 @@ public class User {
 
 	public void setNum(Long num) {
 		this.num = num;
+	}
+
+	public UserRole getRole() {
+		return role;
+	}
+
+	public void setRole(UserRole role) {
+		this.role = role;
 	}
 	 
 }

@@ -6,38 +6,40 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name="Location")
-public class Location {
+@Table(name="hitsPerDay")
+public class HitsPerDay {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(name="name")
-	private String name;
+	@Column(name="day")
+	private Long day;
 	@Column(name="hits")
 	private Long hits;
-	@Column(name="anon_hits")
+	@Column(name="anonHits")
 	private Long anonHits;
-	@Column(name="area")
-	private Long area;
-	@ManyToMany(mappedBy = "locations")
-	private List<HitsPerDay> hitsPerDay;
+	@ManyToMany
+    @JoinTable(name = "locationHitsPerDay")
+    @JsonIgnore
+    List<Location> locations;
 	
-	public Location() {
+	public HitsPerDay() {
 		super();
 	}
 
-	public Location(Long id, String name, Long hits, Long anonHits, Long area, List<HitsPerDay> hitsPerDay) {
+	public HitsPerDay(Long id, Long day, Long hits, Long anonHits, List<Location> locations) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.day = day;
 		this.hits = hits;
 		this.anonHits = anonHits;
-		this.area = area;
-		this.hitsPerDay = hitsPerDay;
+		this.locations = locations;
 	}
 
 	public Long getId() {
@@ -48,12 +50,12 @@ public class Location {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public Long getDay() {
+		return day;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDay(Long day) {
+		this.day = day;
 	}
 
 	public Long getHits() {
@@ -72,20 +74,12 @@ public class Location {
 		this.anonHits = anonHits;
 	}
 
-	public Long getArea() {
-		return area;
+	public List<Location> getLocations() {
+		return locations;
 	}
 
-	public void setArea(Long area) {
-		this.area = area;
+	public void setLocations(List<Location> locations) {
+		this.locations = locations;
 	}
-
-	public List<HitsPerDay> getHitsPerDay() {
-		return hitsPerDay;
-	}
-
-	public void setHitsPerDay(List<HitsPerDay> hitsPerDay) {
-		this.hitsPerDay = hitsPerDay;
-	}
-
+	
 }
