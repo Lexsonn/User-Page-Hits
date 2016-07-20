@@ -1,6 +1,11 @@
 <div class="container-fluid">
-	<div class="col-md-10 col-md-offset-1">
 
+  <div ng-repeat="alert in alerts" ng-show="alert.show">
+    <alert type="alert.type" close="homeController.closeAlert()">{{alert.msg}}</alert></div>
+
+
+	<div class="col-md-10 col-md-offset-1">
+		
 		<div class="jumbotron">
 			<h1>Log in</h1>
 		</div>

@@ -1,7 +1,7 @@
 angular.module('app').controller('HomeController', 
-								['UserDetailService', '$routeParams', '$location','$scope', 
+								['UserDetailService', '$routeParams', '$location', '$scope', 
 								 function(UserDetailService, $routeParams, $location, $scope) {
-
+									
 	this.login = function() {
 		if ($routeParams.id != null) {
 			$scope.user.num = $routeParams.id;
@@ -18,7 +18,13 @@ angular.module('app').controller('HomeController',
 				}
 			} else {
 				authenticated = null
-				alert(response.data.message)
+				swal({
+					title: "Login Failed!", 
+					text: response.data.message, 
+					type: "error",
+					showConfirmButton: true,
+					closeOnConfirm: true
+				});
 				$scope.user.password = ''
 			}
 		})
