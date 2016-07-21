@@ -1,6 +1,7 @@
 package com.cooksys.ftd.controller;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cooksys.ftd.CurrentDay;
 import com.cooksys.ftd.model.LocationResponse;
 import com.cooksys.ftd.model.RequestLocation;
 import com.cooksys.ftd.model.UserResponse;
@@ -20,7 +22,7 @@ import com.cooksys.ftd.service.LocationService;
 @RestController
 @RequestMapping("locations")
 public class LocationController {
-	//private Logger log = LoggerFactory.getLogger(LocationController.class);
+	private Logger log = LoggerFactory.getLogger(LocationController.class);
 	@Autowired
 	LocationService locationService;
 	
@@ -31,7 +33,8 @@ public class LocationController {
 	
 	// What's up?
 	@RequestMapping(method=RequestMethod.GET)
-	public List<LocationResponse> getAllLocations() {
+	public List<LocationResponse> getAllLocations() throws ParseException {
+		log.info("Current day: {}", CurrentDay.getCurrentDay(new Date()));
 		return LocationResponse.getList(locationService.getAllLocations());
 	}
 	

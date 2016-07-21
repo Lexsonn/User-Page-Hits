@@ -2,8 +2,10 @@ package com.cooksys.ftd.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -23,7 +25,7 @@ public class Location {
 	private Long anonHits;
 	@Column(name="area")
 	private Long area;
-	@ManyToMany(mappedBy = "locations")
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "locations", cascade = CascadeType.ALL)
 	private List<HitsPerDay> hitsPerDay;
 	
 	public Location() {

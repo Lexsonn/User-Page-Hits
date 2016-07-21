@@ -22,7 +22,15 @@ input:-webkit-autofill {
   background-color: var(--seaShell);
 }
 
-.darkrow {
+.panel-header {
+  color: var(--darkgray);
+}
+
+.panel-body{
+  color: var(--darkblue)
+}
+
+.darkrow, .resume-container {
   min-width: 60vw;
   min-height: 60px;
   color: var(--seaShell);
@@ -43,8 +51,8 @@ input:-webkit-autofill {
 .btn-default.active.focus, .btn-default.active:focus, .dropdown-toggle:hover,
 .btn-default:active.focus, .btn-default:active:focus,
 .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus {
-  color: var(--seaShell);
-  background-color: var(--blue);
+  color: var(--darkblue);
+  background-color: var(--lightblue);
   border-color: var(--darkblue);
 }
 
@@ -56,8 +64,8 @@ input:-webkit-autofill {
 }
 
 .dropdown-toggle {
-  color: var(--darkblue);
-  background-color: var(--lightblue);
+  color: var(--seaShell);
+  background-color: var(--darkblue);
   border-color: var(--darkgray);
 }
 
