@@ -61,35 +61,32 @@ public class LocationController {
 	}
 	
 	@RequestMapping(value="week/{id}", method=RequestMethod.GET)
-	public LocationResponse getLocationByWeek(@PathVariable Long id) throws ParseException {
+	public LocationResponse getLocationByWeek(@PathVariable("id") Long id) throws ParseException {
 		return LocationResponse.get(locationService.getLocationByDaysNum(id, 7L));
 	}
 	
 	@RequestMapping(value="month/{id}", method=RequestMethod.GET)
-	public LocationResponse getLocationByMonth(@PathVariable Long id) throws ParseException {
+	public LocationResponse getLocationByMonth(@PathVariable("id") Long id) throws ParseException {
 		return LocationResponse.get(locationService.getLocationByDaysNum(id, 30L));
 	}
 	
 	@RequestMapping(value="year/{id}", method=RequestMethod.GET)
-	public LocationResponse getLocationByYear(@PathVariable Long id) throws ParseException {
+	public LocationResponse getLocationByYear(@PathVariable("id") Long id) throws ParseException {
 		return LocationResponse.get(locationService.getLocationByDaysNum(id, 360L));
 	}
-//	@RequestMapping(method=RequestMethod.GET)
-//	public List<Location> getAllLocations() {
-//		return locationService.getAllLocations();
-//	}
+
 	@RequestMapping(value="/{id}")
-	public LocationResponse getLocation(@PathVariable Long id) {
+	public LocationResponse getLocation(@PathVariable("id") Long id) {
 		return LocationResponse.get(locationService.getLocationById(id));
 	}
 	
 	@RequestMapping(value="{id}/users")
-	public List<UserResponse> getUsersByLocation(@PathVariable Long id) {
+	public List<UserResponse> getUsersByLocation(@PathVariable("id") Long id) {
 		return UserResponse.getList(locationService.getAllUsersByLocation(id));
 	}
 	
 	@RequestMapping(value="{id}/stats")
-	public String getLocationConversion(@PathVariable Long id) {
+	public String getLocationConversion(@PathVariable("id") Long id) {
 		return locationService.getConversionRateByLocation(id);
 	}
 	

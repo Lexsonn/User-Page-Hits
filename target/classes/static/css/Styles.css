@@ -1,4 +1,92 @@
-.moveup {
-	position: relative;
-	bottom: 40px;
+:root {
+  --darkblue: rgb(10,10,120);
+  --blue: rgb(30,30,226);
+  --darkgray: rgb(10,10,40);
+  --red: rgb(146,10,10);
+  --darkred: rgb(80,10,10);
+  --seaShell: rgb(230,230,256);
+  --lightblue: rgb(180,180,220);
+  --green: rgb(10, 128, 10);
+  --darkgreen: rgb(10,60,10);
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px var(--seaShell) inset;
+}
+
+.body, .container-fluid {
+  background-color: var(--lightblue);
+}
+
+.back {
+  background-color: var(--seaShell);
+}
+
+.darkrow {
+  min-width: 60vw;
+  min-height: 60px;
+  color: var(--seaShell);
+  background-color: var(--darkblue);
+}
+
+.btn {
+  background-color: var(--darkblue);
+  border-color: var(--darkgray);
+}
+
+.btn-default-active, .btn:hover  {
+  background-color: var(--blue);
+  border-color: var(--darkblue);
+}
+
+
+.btn-default.active.focus, .btn-default.active:focus, .dropdown-toggle:hover,
+.btn-default:active.focus, .btn-default:active:focus,
+.open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus {
+  color: var(--seaShell);
+  background-color: var(--blue);
+  border-color: var(--darkblue);
+}
+
+.btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default,
+.btn-default.active:hover, .btn-default.inactive, .open>.dropdown-toggle.btn-default:hover {
+  color: var(--seaShell);
+  background-color: var(--darkblue);
+  border-color: var(--darkgray);
+}
+
+.dropdown-toggle {
+  color: var(--darkblue);
+  background-color: var(--lightblue);
+  border-color: var(--darkgray);
+}
+
+.dropdown-menu, .jumbotron {
+  background-color: var(--seaShell);
+  color: var(--darkblue);
+}
+ .dropdown-menu:hover {
+   color: var(--darkblue);
+}
+
+.dropdown-menu>li>a, .list-group-item, a.list-group-item  {
+  color: var(--darkblue);
+  background-color: var(--seaShell);
+  border-color: var(--lightblue);
+}
+
+.dropdown-menu>li>a:hover {
+  color: var(--darkblue);
+  background-color: var(--lightblue);
+  border-color: var(--blue);
+}
+
+@-webkit-keyframes rainbow {
+    0% {background: blue;}
+    15% {background: magenta;}
+    30% {background: red;}
+    45% {background: orange;}
+    60% {background: yellow;}
+    75% {background: green;}
+    100% {background: blue;}
 }

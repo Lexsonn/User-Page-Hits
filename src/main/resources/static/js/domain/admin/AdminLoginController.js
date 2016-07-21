@@ -1,9 +1,10 @@
 angular.module('app').controller('AdminLoginController', 
 								['LocationDetailService', '$scope', 'allLocations', '$location', '$routeParams', 
 								 function(LocationDetailService, $scope, allLocations, $location, $routeParams) {
-																																					$('#fuckyou').css({marginTop: '-15px'})	// yeah thats right im talking to you
-																																					$('#fuckyoutoo').css({marginTop: '-15px'})
-									
+	$('.moveup').each(function(index, element){ $(element).css({marginTop: '-15px'}) });
+	$('#typeMenu').css({marginTop: '2vh'})
+	//loadCSS('css/Styles.css')
+	
 	if (authenticated != 'admin')
 		$location.path('/home')
 		
@@ -21,9 +22,9 @@ angular.module('app').controller('AdminLoginController',
 			$scope.locations = allLocations.data;
 		}else {
 			LocationDetailService.getLocationsByDays(type)
-				.then(function(result) { 
-					$scope.locations = result.data;
-				});
+			.then(function(result) { 
+				$scope.locations = result.data;
+			});
 		}
 	}
 }]);
