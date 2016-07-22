@@ -14,8 +14,16 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px var(--seaShell) inset;
 }
 
-.body, .container-fluid {
+.body, .container-fluid, .spacer {
   background-color: var(--lightblue);
+}
+
+.moveup {
+	margin-top: -=15px;
+}
+
+.spacer {
+  margin-bottom: 15px;
 }
 
 .back {
