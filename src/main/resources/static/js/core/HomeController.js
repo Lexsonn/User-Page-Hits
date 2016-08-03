@@ -1,11 +1,11 @@
 angular.module('app').controller('HomeController', 
 								['UserDetailService', '$routeParams', '$location', '$scope', 
 								 function(UserDetailService, $routeParams, $location, $scope) {
-	$(document).ready(function() {
-		setTimeout(function(){
-			$('.back').each(function(index, element){ $(element).css('background-color', 'red') });
-		}, 2000);
-	})
+//	$(document).ready(function() {
+//		setTimeout(function(){
+//			$('.back').each(function(index, element){ $(element).css('background-color', 'red') });
+//		}, 2000);
+//	})
 	
 	this.login = function() {
 		if ($routeParams.id != null) {

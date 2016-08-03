@@ -8,14 +8,40 @@
   --lightblue: rgb(180,180,220);
   --green: rgb(10, 128, 10);
   --darkgreen: rgb(10,60,10);
+  --new: #EE2222;
+  --col: #EE6622;
+  --col: #FFAA22;
+  --col: #EEFF22;
+  --col: #AAFF22;
+  --col: #66EE44;
+  --col: #33DD88;
+  --col: #22CCDD;
+  --col: #22AAFF;
+  --col: #2266FF;
+  --col: #2222EE;
+  --col: #4422FF;
+  --col: #6622EE;
+  --col: #9922CC;
+  --col: #AA2299;
+  --col: #CC2266;
+  --col: #DD2244;
+  --col: #EE2222;
 }
 
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px var(--seaShell) inset;
 }
 
-.body, .container-fluid {
+.body, .container-fluid, .spacer {
   background-color: var(--lightblue);
+}
+
+.moveup {
+	margin-top: -=15px;
+}
+
+.spacer {
+  margin-bottom: 15px;
 }
 
 .back {
@@ -37,6 +63,10 @@ input:-webkit-autofill {
   background-color: var(--darkblue);
 }
 
+.listing {
+  margin-right: 10px;
+}
+
 .btn {
   background-color: var(--darkblue);
   border-color: var(--darkgray);
@@ -47,6 +77,12 @@ input:-webkit-autofill {
   border-color: var(--darkblue);
 }
 
+.jumbotron.smaller {
+	padding-top: 24px;
+	padding-bottom: 24px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
 
 .btn-default.active.focus, .btn-default.active:focus, .dropdown-toggle:hover,
 .btn-default:active.focus, .btn-default:active:focus,
@@ -73,6 +109,7 @@ input:-webkit-autofill {
   background-color: var(--seaShell);
   color: var(--darkblue);
 }
+
  .dropdown-menu:hover {
    color: var(--darkblue);
 }

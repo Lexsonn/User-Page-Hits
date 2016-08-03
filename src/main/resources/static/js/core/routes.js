@@ -33,7 +33,7 @@ angular
 	  	  	}
     	  }
         })
-        .when('/locations/get/:id', {
+        .when('/locations/get/:source/:dest', {
         	templateUrl: baseRoute + 'location/locationDetailTemplate.html',
         	controller: 'LocationDetailController',
         	controllerAs: 'locationDetailController'
